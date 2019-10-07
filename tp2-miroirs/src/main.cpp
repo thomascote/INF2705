@@ -1,7 +1,7 @@
 // Prénoms, noms et matricule des membres de l'équipe:
-// - Prénom1 NOM1 (matricule1)
-// - Prénom2 NOM2 (matricule2)
-#warning "Écrire les prénoms, noms et matricule des membres de l'équipe dans le fichier et commenter cette ligne"
+// - Thomas Cote 1901057
+// - Manuel Figueiroa 2038667
+//#warning "Écrire les prénoms, noms et matricule des membres de l'équipe dans le fichier et commenter cette ligne"
 
 #include <stdlib.h>
 #include <iostream>
@@ -164,7 +164,7 @@ void FenetreTP::afficherScene( )
 
     // définir le pipeline graphique
     //GLdouble largeur2ViewPort = largeur_/2;
-    matrProj.Perspective( 50.0, (GLdouble) largeur_ / (GLdouble) hauteur_, 0.1, 100.0 );
+    matrProj.Perspective( 65.0, (GLdouble) largeur_ /2/ (GLdouble) hauteur_, 0.1, 100.0 );
     glUniformMatrix4fv( locmatrProjBase, 1, GL_FALSE, matrProj );
 
     camera.definir();

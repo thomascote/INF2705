@@ -51,6 +51,7 @@ public:
             matrModel.PushMatrix();{
                 matrModel.Scale( 5.0*taille, taille, taille );
                 matrModel.Rotate( 90.0, 0.0, 1.0, 0.0 );
+                if ( vitesse > 0.0 ) matrModel.Rotate( 180.0, 0.0, 1.0, 0.0 );
                 matrModel.Translate( 0.0, 0.0, -0.5 );
                 glUniformMatrix4fv( locmatrModel, 1, GL_FALSE, matrModel ); // ==> Avant de tracer, on doit informer la carte graphique des changements faits à la matrice de modélisation
 

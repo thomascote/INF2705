@@ -18,3 +18,13 @@ Q2: Dans le cadre de ce TP, les réflexions sur les parois sont uniques,
     Au total, combien de fois devrait-on alors tracer la scène ?
 
 
+In order to replicate the reflection as seen on figure 10 (meaning, to add an extra reflection),
+we would solely need to display another copy for the scene. 
+Currently, the mirrors/walls reflect only the scene inside the aquarium. We do this by displaying a copy of the scene behind the mirror,
+and selectively displaying the scene only inside the boundaries of the wall using the stencil.
+In order for each wall to also "reflect"the opposing mirror, we would need to add/display another copy of the scene, in this case the fishes,
+behind the current copy of the fish outside the mirros. Where the first copy is flipped (we reflect the scene using scale), this second copy
+has the same orientation as the original one, so as to simulate a reflection's reflection, and uses the same tampon de stencil.
+When displaying the first copy, we translate the scene X distance in each direction (both scenes have the same distance to the walls).
+This second copy would then be translated 2X distance.
+This would then require a total of 9 displays - the one inside the aquarium, and 2 scenes for each wall (2*4).
