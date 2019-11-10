@@ -1,3 +1,5 @@
+#version 410
+
 layout(vertices = 4) out;
 
 uniform float TessLevelInner;

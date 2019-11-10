@@ -510,6 +510,14 @@ void afficherModele()
             if ( Etat::utiliseTess )
             {
                 // partie 3: afficher le cube avec des GL_PATCHES
+
+                glDrawArrays(GL_PATCHES, 0, 4);
+                glDrawArrays(GL_PATCHES, 4, 4);
+                glDrawArrays(GL_PATCHES, 8, 4);
+                glDrawArrays(GL_PATCHES, 12, 4);
+                glDrawArrays(GL_PATCHES, 16, 4);
+                glDrawArrays(GL_PATCHES, 20, 4);
+                 
             }
             else
             {

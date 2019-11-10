@@ -72,14 +72,21 @@ vec4 calculerReflexion( in int j, in vec3 L, in vec3 N, in vec3 O ) // pour la l
 
 void main( void )
 {
+    vec3 N = AttribsIn.N;
 
     vec4 coulTexture = texture(laTextureCoul, AttribsIn.TexCoord);
+
+    if(numTexNorm != 0){
+        vec3 couleur = texture(laTextureNorm, AttribsIn.TexCoord).rgb;
+        vec3 dN = normalize((couleur - 0.5) * 2.0);
+        N = normalize(N + dN);
+    }
 
     if(typeIllumination == 1){
         FragColor = FrontMaterial.ambient * LightModel.ambient + FrontMaterial.emission;
 
         for(int j = 0; j < 3; j++){
-            FragColor += calculerReflexion( j, AttribsIn.L[j], AttribsIn.N, AttribsIn.O );
+            FragColor += calculerReflexion( j, AttribsIn.L[j], N, AttribsIn.O );
         }
         if(numTexCoul != 0){
             FragColor = FragColor * coulTexture;
@@ -96,7 +103,7 @@ void main( void )
     }
 
 
-    int j = 0;
+    //int j = 0;
     // vec4 coul = calculerReflexion( j, L, N, O );
     // ...
 
